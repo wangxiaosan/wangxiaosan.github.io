@@ -54,28 +54,35 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wyen">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="接触契机由于客户要求, 将现有项目的数据库切换到要求的数据. mybatis在mysql的基础上编写的sql具有针对性, 不适合移植, 为了更灵活的移植, 考虑到替换mybatis.优先考虑到的持久层为hibernate.hibernate完全符合本次的要求, 其完全基于对象关系映射, 避免直接操纵对应数据库的方言, 只要在开发的过程中避免native-sql的编写, 移植非常方便.但考虑到其他方">
+<meta name="keywords" content="repository,querydsl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Querydsl の querydsl-sql">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/querydsl/index.html">
 <meta property="og:site_name" content="wyen">
+<meta property="og:description" content="接触契机由于客户要求, 将现有项目的数据库切换到要求的数据. mybatis在mysql的基础上编写的sql具有针对性, 不适合移植, 为了更灵活的移植, 考虑到替换mybatis.优先考虑到的持久层为hibernate.hibernate完全符合本次的要求, 其完全基于对象关系映射, 避免直接操纵对应数据库的方言, 只要在开发的过程中避免native-sql的编写, 移植非常方便.但考虑到其他方">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/08/20/querydsl/dao.png">
+<meta property="og:updated_time" content="2019-08-20T14:49:16.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wyen">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="Querydsl の querydsl-sql">
+<meta name="twitter:description" content="接触契机由于客户要求, 将现有项目的数据库切换到要求的数据. mybatis在mysql的基础上编写的sql具有针对性, 不适合移植, 为了更灵活的移植, 考虑到替换mybatis.优先考虑到的持久层为hibernate.hibernate完全符合本次的要求, 其完全基于对象关系映射, 避免直接操纵对应数据库的方言, 只要在开发的过程中避免native-sql的编写, 移植非常方便.但考虑到其他方">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/20/querydsl/dao.png">
+  <link rel="canonical" href="http://yoursite.com/2019/08/20/querydsl/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>wyen</title>
+  <title>Querydsl の querydsl-sql | wyen</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -190,10 +197,11 @@
         <div class="content-wrap">
             
 
-          <div id="content" class="content page-home">
+          <div id="content" class="content page-post-detail">
             
-  <section id="posts" class="posts-expand">
-      
+
+  <div id="posts" class="posts-expand">
+    
 
   <article class="post" itemscope itemtype="http://schema.org/Article">
   
@@ -212,9 +220,8 @@
       <meta itemprop="name" content="wyen">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/20/querydsl/" class="post-title-link" itemprop="url">Querydsl の querydsl-sql</a>
+        <h1 class="post-title" itemprop="name headline">Querydsl の querydsl-sql
+
           
         </h1>
 
@@ -248,7 +255,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="接触契机"><a href="#接触契机" class="headerlink" title="接触契机"></a>接触契机</h2><p>由于客户要求, 将现有项目的数据库切换到要求的数据. mybatis在mysql的基础上编写的sql具有针对性, 不适合移植, 为了更灵活的移植, 考虑到替换mybatis.<br>优先考虑到的持久层为hibernate.<br>hibernate完全符合本次的要求, 其完全基于对象关系映射, 避免直接操纵对应数据库的方言, 只要在开发的过程中避免native-sql的编写, 移植非常方便.<br>但考虑到其他方面的原因, 比如:<br>hql并不比使用sql简单。首先，从很多角度上看，hql等语言更加复杂和难以理解;其次就是性能上明显降低，速度更慢，内存占用巨大，而且还不好优化(对配置的人的专业知识要求比较高)。最为恼火的是，当关系的概念被替换为对象的概念之后，查询语言的灵活性变得很差，表达能力也比sql弱很多。写查询语句的时候受到各种各样的限制，一个典型的例子就是多表关联查询。<br>表之间的连接查询，被映射为实体类之间的关联关系，这样，如果两个实体类之间没有（实现）关联关系，你就不能把两个实体（或者表）join起来查询。<br>这是很恼火的事情，因为我们很多时候并不需要显式定义两个实体类之间的关联关系就可以实现业务逻辑，如果使用hql，只是为了join我们就必须在两个实体类之间添加代码，而且还不能逆向工程，如果表里面没有定义外键约束的话，逆向工程会把我们添加的关联代码抹掉。</p>
+        <h2 id="接触契机"><a href="#接触契机" class="headerlink" title="接触契机"></a>接触契机</h2><p>由于客户要求, 将现有项目的数据库切换到要求的数据. mybatis在mysql的基础上编写的sql具有针对性, 不适合移植, 为了更灵活的移植, 考虑到替换mybatis.<br>优先考虑到的持久层为hibernate.<br>hibernate完全符合本次的要求, 其完全基于对象关系映射, 避免直接操纵对应数据库的方言, 只要在开发的过程中避免native-sql的编写, 移植非常方便.<br>但考虑到其他方面的原因, 比如:<br>hql并不比使用sql简单。首先，从很多角度上看，hql等语言更加复杂和难以理解;其次就是性能上明显降低，速度更慢，内存占用巨大，而且还不好优化(对配置的人的专业知识要求比较高)。最为恼火的是，当关系的概念被替换为对象的概念之后，查询语言的灵活性变得很差，表达能力也比sql弱很多。写查询语句的时候受到各种各样的限制，一个典型的例子就是多表关联查询。<br>表之间的连接查询，被映射为实体类之间的关联关系，这样，如果两个实体类之间没有（实现）关联关系，你就不能把两个实体（或者表）join起来查询。<br>这是很恼火的事情，因为我们很多时候并不需要显式定义两个实体类之间的关联关系就可以实现业务逻辑，如果使用hql，只是为了join我们就必须在两个实体类之间添加代码，而且还不能逆向工程，如果表里面没有定义外键约束的话，逆向工程会把我们添加的关联代码抹掉。</p>
 <p>基于这些考虑, 通过对比, 最后选定了querydsl.</p>
 <h2 id="Querydsl正式登场"><a href="#Querydsl正式登场" class="headerlink" title="Querydsl正式登场"></a>Querydsl正式登场</h2><p>接下来简单介绍querydsl-sql的一些配置和简单例子.</p>
 <h3 id="querydsl-简单介绍"><a href="#querydsl-简单介绍" class="headerlink" title="querydsl 简单介绍"></a>querydsl 简单介绍</h3><p>querydsl 以流式api形式编写repository层代码, 有两种适用模式，querydsl-jpa和querydsl-sql。</p>
@@ -268,27 +275,38 @@ BaseDao&lt;T, ID&gt;<br> T : EntityType, 目前所有的实体类必须有主键
   所有实体须实现PrimaryEntity, 实现getPrimaryKey()方法, 此方法返回实体的主键. (querydsl codegen test已实现生成bean的时候实现getPrimaryKey方法, 为了方便获取当前实体的主键, 增加了一个注解: @PrimayKey, codegen test生成实体bean的时候, 已加在主键列属性上.) </id></li>
 </ol>
 
-        
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-          <div class="post-eof"></div>
         
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/repository/" rel="tag"># repository</a>
+            
+              <a href="/tags/querydsl/" rel="tag"># querydsl</a>
+            
+          </div>
+        
+
+        
+
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -307,8 +325,17 @@ BaseDao&lt;T, ID&gt;<br> T : EntityType, 目前所有的实体类必须有主键
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,6 +378,23 @@ BaseDao&lt;T, ID&gt;<br> T : EntityType, 目前所有的实体类必须有主键
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#接触契机"><span class="nav-number">1.</span> <span class="nav-text">接触契机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Querydsl正式登场"><span class="nav-number">2.</span> <span class="nav-text">Querydsl正式登场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#querydsl-简单介绍"><span class="nav-number">2.1.</span> <span class="nav-text">querydsl 简单介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用codegen生成实体"><span class="nav-number">2.2.</span> <span class="nav-text">利用codegen生成实体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作-设计"><span class="nav-number">2.2.1.</span> <span class="nav-text">准备工作(设计)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -439,5 +483,8 @@ BaseDao&lt;T, ID&gt;<br> T : EntityType, 目前所有的实体类必须有主键
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script><script src="/js/post-details.js?v=7.3.0"></script>
+
+
 </body>
 </html>
